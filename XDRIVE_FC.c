@@ -48,7 +48,8 @@ task main()
 		RawY = getJoystickValue(ChA);
 		RawRX = getJoystickValue(ChC);
 		FieldcX = (RawX * cosDegrees(GyroYaw)) + (RawY * sinDegrees(GyroYaw));
-		FieldcY = (RawY * cosDegrees(GyroYaw)) - (RawX * sinDegrees(GyroYaw));
+		FieldcY = (RawX * sinDegrees(GyroYaw)) - (RawY * cosDegrees(GyroYaw));
+		FL = (FieldcY + FieldcX + RawRX);
 		FL = (FieldcY + FieldcX + RawRX);
 		FR = (FieldcY - FieldcX - RawRX);
 		RL = (FieldcY - FieldcX + RawRX);
@@ -64,3 +65,4 @@ task main()
 		sleep(20);
 	}
 }
+
